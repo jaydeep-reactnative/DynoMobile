@@ -1,9 +1,9 @@
 import React from 'react';
 
-import {HomeScreen} from './screens'
+import {HomeScreen,MoleculeScreen} from './screens'
 
 const App = () => {
-  return ( <HomeScreen/> );
+  return ( <MoleculeScreen/> );
 };
 
 export default App;

@@ -160,7 +160,7 @@ export const HomeScreen = ({navigation}) => {
 
   const onSubmit = () => {
     console.log('onSubmit: ', myControl.current);
-    navigation.goBack();
+    // navigation.goBack();
   };
 
   /**
