@@ -1,10 +1,10 @@
 import React from 'react'
-import { SafeAreaView, View, Text, TextInput } from 'react-native'
+import { View, Text, TextInput } from 'react-native'
 import PropTypes from 'prop-types'
 
 export const TextInputWithLabel = (props) => {
   const { 
-    placeholder='Name',
+    placeholder='',
     placeholderTextColor='black',
     inputBorderColor='#01ccce',
     inputBorderRadius=15,
@@ -14,17 +14,15 @@ export const TextInputWithLabel = (props) => {
     labelColor='#6f7faf', 
     labelFontSize= 13, 
     labelLetterSpacing=0.09, 
-    labelStyles } = props;
-  const textInputStyle= { marginTop:12, height:38, borderRadius:inputBorderRadius, borderWidth: inputBorderWidth, borderColor:inputBorderColor, ...textInputStyles };
+    labelStyles } = props
+  const textInputStyle= { marginTop:12, height:38, borderRadius:inputBorderRadius, borderWidth: inputBorderWidth, borderColor:inputBorderColor, ...textInputStyles }
   const labelStyle= { color: labelColor,fontSize:labelFontSize,letterSpacing:labelLetterSpacing,...labelStyles }
   
   return (
-    <SafeAreaView style={{ flex:1 }}>
-      <View style={{ marginTop:30,marginLeft:30,marginHorizontal:30 }}>
-        <Text style={labelStyle}>{labelName}</Text>
-        <TextInput placeholder={placeholder} placeholderTextColor={placeholderTextColor} style={textInputStyle} />
-      </View>
-    </SafeAreaView>
+    <View style={{ marginTop:30,marginLeft:30,marginHorizontal:30 }}>
+      <Text style={labelStyle}>{labelName}</Text>
+      <TextInput placeholder={placeholder} placeholderTextColor={placeholderTextColor} style={textInputStyle} />
+    </View>
   );
 };
 

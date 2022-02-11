@@ -1,8 +1,12 @@
 import React from 'react'
-import { TextInputWithLabel } from '../../components'
+import { SafeAreaView } from 'react-native'
+import { TextInputWithLabel, TextInputWithLabelAndTooltip } from '../../components'
 
 export const MoleculeScreen = () => {
   return (
-    <TextInputWithLabel />
+    <SafeAreaView style={{ flex: 1 }}>
+      <TextInputWithLabel />
+      <TextInputWithLabelAndTooltip/>
+    </SafeAreaView>
   );
 };
