@@ -1,17 +1,17 @@
-import React, {Component} from 'react';
-import {View,SafeAreaView} from 'react-native';
-import {times} from 'lodash';
-import PropTypes from 'prop-types';
-import StepIcon from './StepIcon';
+import React, { Component } from 'react'
+import { View,SafeAreaView } from 'react-native'
+import { times } from 'lodash'
+import PropTypes from 'prop-types'
+import StepIcon from './StepIcon'
 
 class ProgressSteps extends Component {
   state = {
     stepCount: 0,
-    activeStep: this.props.activeStep,
+    activeStep: this.props.activeStep
   };
 
   componentDidMount() {
-    this.setState({stepCount: React.Children.count(this.props.children)});
+    this.setState({ stepCount: React.Children.count(this.props.children) });
   }
 
   componentDidUpdate(prevProps) {
@@ -21,7 +21,7 @@ class ProgressSteps extends Component {
   }
 
   getChildProps() {
-    return {...this.props, ...this.state};
+    return { ...this.props, ...this.state };
   }
 
   renderStepIcons = () => {
@@ -49,7 +49,7 @@ class ProgressSteps extends Component {
               isActiveStep={isActiveStep}
             />
           </View>
-        </View>,
+        </View>
       );
     });
 
@@ -60,11 +60,11 @@ class ProgressSteps extends Component {
   setActiveStep = step => {
     // Guard against setting current step higher than total step count.
     if (step >= this.state.stepCount - 1) {
-      this.setState({activeStep: this.state.stepCount - 1});
+      this.setState({ activeStep: this.state.stepCount - 1 });
     }
 
     if (step > -1 && step < this.state.stepCount - 1) {
-      this.setState({activeStep: step});
+      this.setState({ activeStep: step });
     }
   };
 
@@ -77,18 +77,18 @@ class ProgressSteps extends Component {
         flexDirection: 'row',
         top: this.props.topOffset,
         marginBottom: this.props.marginBottom,
-        backgroundColor: '#0e101c',
-      },
+        backgroundColor: '#0e101c'
+      }
     };
 
     return (
-      <SafeAreaView style={{flex: 1, backgroundColor: '#0e101c'}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#0e101c' }}>
         <View style={styles.stepIcons}>{this.renderStepIcons()}</View>
-        <View style={{flex: 1, backgroundColor: '#5D52AC'}}>
+        <View style={{ flex: 1, backgroundColor: '#5D52AC' }}>
           {React.cloneElement(this.props.children[this.state.activeStep], {
             setActiveStep: this.setActiveStep,
             activeStep: this.state.activeStep,
-            stepCount: this.state.stepCount,
+            stepCount: this.state.stepCount
           })}
         </View>
       </SafeAreaView>
@@ -101,13 +101,14 @@ ProgressSteps.propTypes = {
   activeStep: PropTypes.number,
   topOffset: PropTypes.number,
   marginBottom: PropTypes.number,
+  children: PropTypes.object
 };
 
 ProgressSteps.defaultProps = {
   isComplete: false,
   activeStep: 0,
   topOffset: 30,
-  marginBottom: 50,
+  marginBottom: 50
 };
 
-export default ProgressSteps;
+export default ProgressSteps

@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
-import React, {Component} from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import React, { Component } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
 import ProgressButtons from './ProgressButtons';
 
 class ProgressStep extends Component {
@@ -29,7 +30,7 @@ class ProgressStep extends Component {
     const btnStyle = {
       textAlign: 'center',
       padding: 8,
-      ...this.props.nextBtnStyle,
+      ...this.props.nextBtnStyle
     };
 
     const btnTextStyle = {
@@ -38,11 +39,11 @@ class ProgressStep extends Component {
       fontSize: 18,
       letterSpacing: 0.5,
       textDecorationLine: 'underline',
-      ...this.props.nextBtnTextStyle,
+      ...this.props.nextBtnTextStyle
     };
 
     const disabledBtnText = {
-      color: '#cdcdcd',
+      color: '#cdcdcd'
     };
 
     const textStyle = [btnTextStyle];
@@ -53,12 +54,12 @@ class ProgressStep extends Component {
     return (
       <TouchableOpacity
         style={btnStyle}
+        disabled={this.props.nextBtnDisabled}
         onPress={
           this.props.activeStep === this.props.stepCount - 1
             ? this.onSubmit
             : this.onNextStep
-        }
-        disabled={this.props.nextBtnDisabled}>
+        }>
         <Text style={textStyle}>
           {this.props.activeStep === this.props.stepCount - 1
             ? this.props.finishBtnText
@@ -72,7 +73,7 @@ class ProgressStep extends Component {
     const btnStyle = {
       textAlign: 'center',
       padding: 8,
-      ...this.props.previousBtnStyle,
+      ...this.props.previousBtnStyle
     };
 
     const btnTextStyle = {
@@ -81,11 +82,11 @@ class ProgressStep extends Component {
       fontSize: 18,
       letterSpacing: 0.5,
       textDecorationLine: 'underline',
-      ...this.props.previousBtnTextStyle,
+      ...this.props.previousBtnTextStyle
     };
 
     const disabledBtnText = {
-      color: '#cdcdcd',
+      color: '#cdcdcd'
     };
 
     const textStyle = [btnTextStyle];
@@ -96,8 +97,8 @@ class ProgressStep extends Component {
     return (
       <TouchableOpacity
         style={btnStyle}
-        onPress={this.onPreviousStep}
-        disabled={this.props.previousBtnDisabled}>
+        disabled={this.props.previousBtnDisabled}
+        onPress={this.onPreviousStep}>
         <Text style={textStyle}>
           {this.props.activeStep === 0 ? '' : this.props.previousBtnText}
         </Text>
@@ -106,6 +107,7 @@ class ProgressStep extends Component {
   };
 
   render() {
+    // eslint-disable-next-line no-unused-vars
     const scrollViewProps = this.props.scrollViewProps || {};
     const viewProps = this.props.viewProps || {};
     const isScrollable = this.props.scrollable;
@@ -121,13 +123,13 @@ class ProgressStep extends Component {
     );
 
     return (
-      <View style={{flex: 1, backgroundColor: '#0e101c'}}>
+      <View style={{ flex: 1, backgroundColor: '#0e101c' }}>
         {isScrollable ? (
-          <View style={{flex: 1, backgroundColor: '#0e101c'}}>
+          <View style={{ flex: 1, backgroundColor: '#0e101c' }}>
             {this.props.children}
           </View>
         ) : (
-          <View style={{flex: 1, backgroundColor: '#0e101c'}} {...viewProps}>
+          <View style={{ flex: 1, backgroundColor: '#0e101c' }} {...viewProps}>
             {this.props.children}
           </View>
         )}
@@ -160,7 +162,7 @@ ProgressStep.propTypes = {
   removeBtnRow: PropTypes.bool,
   scrollable: PropTypes.bool,
   previousBottomSpace: PropTypes.number,
-  nextBottomSpace: PropTypes.number,
+  nextBottomSpace: PropTypes.number
 };
 
 ProgressStep.defaultProps = {
@@ -171,7 +173,7 @@ ProgressStep.defaultProps = {
   previousBtnDisabled: false,
   errors: false,
   removeBtnRow: false,
-  scrollable: true,
+  scrollable: true
 };
 
 export default ProgressStep;
