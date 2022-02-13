@@ -1,9 +1,15 @@
 {
-    "editor.snippetSuggestions": "top",
+    "editor.snippetSuggestions": "inline",
     "workbench.tree.indent": 4,
     "editor.fontSize": 16,
     "editor.tabSize": 2,
     "editor.bracketPairColorization.enabled": true,
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-    "editor.smoothScrolling": true
+    "editor.smoothScrolling": true,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    "editor.tabCompletion": "on"
 }
