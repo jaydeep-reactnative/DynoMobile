@@ -13,12 +13,11 @@ export const LabelWithCheckbox = (props) => {
     uncheckedCheckBoxColor='#B5B5BE'
   } = props
   const [isChecked, setCheckekboxValue] = useState(false);
-  const [isFavChecked, setFavCheckekboxValue] = useState(false);
   const checkBoxStyle = { flex:1, ...checkBoxStyles }
   const rightTextStyle = { width:50,height:20, color:'#6F7FAF', ...rightTextStyles }
 
   return (
-    <View style={{ marginTop:100,marginLeft:30,marginHorizontal:30 }}>
+    <View style={{ marginTop:60,marginLeft:30,marginHorizontal:30 }}>
       <CheckBox
         style={checkBoxStyle}
         isChecked={isChecked}
@@ -27,15 +26,6 @@ export const LabelWithCheckbox = (props) => {
         checkedCheckBoxColor={checkedCheckBoxColor}
         uncheckedCheckBoxColor={uncheckedCheckBoxColor}
         onClick={()=> {setCheckekboxValue(!isChecked)}}
-      />
-      <CheckBox
-        style={checkBoxStyle}
-        isChecked={isFavChecked}
-        rightText={leftText}
-        rightTextStyle={rightTextStyle}
-        checkedCheckBoxColor={checkedCheckBoxColor}
-        uncheckedCheckBoxColor={uncheckedCheckBoxColor}
-        onClick={()=> {setFavCheckekboxValue(!isFavChecked)}}
       />
     </View>
   );

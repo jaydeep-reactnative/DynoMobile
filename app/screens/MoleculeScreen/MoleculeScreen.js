@@ -8,7 +8,8 @@ export const MoleculeScreen = () => {
       <TextInputWithLabel />
       <TextInputWithLabelAndTooltip/>
       <LabelWithDropDown />
-      <LabelWithCheckbox />
+      <LabelWithCheckbox rightText='Set Favourites'/>
+      <LabelWithCheckbox rightText='Set Recurring'/>
     </SafeAreaView>
   );
 };
