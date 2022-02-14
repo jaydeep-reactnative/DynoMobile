@@ -18,7 +18,7 @@ export const TextInputWithLabelAndTooltip = (props) => {
     labelStyles, 
     tooltipLabel='Find Biller Amount In The Bill' } = props
   const textInputStyle = { marginTop:12, height:38, borderRadius:inputBorderRadius, borderWidth: inputBorderWidth, borderColor:inputBorderColor, ...textInputStyles }
-  const labelStyle = { color: labelColor,fontSize:labelFontSize,letterSpacing:labelLetterSpacing,...labelStyles }
+  const labelStyle = { color: labelColor, fontSize:labelFontSize, letterSpacing:labelLetterSpacing, ...labelStyles }
   const toolTipViewStyle = { width:18, height:18, borderColor:'#6f7faf', borderWidth:1, borderRadius:9, marginLeft:5, alignItems:'center', justifyContent:'center' }
   return (
     <View style={{ marginTop:30,marginLeft:30,marginHorizontal:30 }}>

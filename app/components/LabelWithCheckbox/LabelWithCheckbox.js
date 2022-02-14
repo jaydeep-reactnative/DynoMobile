@@ -3,28 +3,38 @@ import { View } from 'react-native'
 import CheckBox from '../Checkbox'
 import PropTypes from 'prop-types'
 
-export const LabelWithCheckbox = () => {
+export const LabelWithCheckbox = (props) => {
+  const { 
+    checkBoxStyles, 
+    rightText='Set Recurring', 
+    leftText='Set Favourites',
+    rightTextStyles,
+    checkedCheckBoxColor='#01CCCE',
+    uncheckedCheckBoxColor='#B5B5BE'
+  } = props
   const [isChecked, setCheckekboxValue] = useState(false);
   const [isFavChecked, setFavCheckekboxValue] = useState(false);
+  const checkBoxStyle = { flex:1, ...checkBoxStyles }
+  const rightTextStyle = { width:50,height:20, color:'#6F7FAF', ...rightTextStyles }
 
   return (
     <View style={{ marginTop:100,marginLeft:30,marginHorizontal:30 }}>
       <CheckBox
-        style={{ flex: 1 }}
+        style={checkBoxStyle}
         isChecked={isChecked}
-        rightText={'Set Recurring'}
-        rightTextStyle={{ width:50,height:20, color:'#6F7FAF' }}
-        checkedCheckBoxColor='#01CCCE'
-        uncheckedCheckBoxColor='#B5B5BE'
+        rightText={rightText}
+        rightTextStyle={rightTextStyle}
+        checkedCheckBoxColor={checkedCheckBoxColor}
+        uncheckedCheckBoxColor={uncheckedCheckBoxColor}
         onClick={()=> {setCheckekboxValue(!isChecked)}}
       />
       <CheckBox
-        style={{ flex: 1,marginTop:30 }}
+        style={checkBoxStyle}
         isChecked={isFavChecked}
-        rightText={'Set Favourites'}
-        rightTextStyle={{ width:50,height:20, color:'#6F7FAF' }}
-        checkedCheckBoxColor='#01CCCE'
-        uncheckedCheckBoxColor='#B5B5BE'
+        rightText={leftText}
+        rightTextStyle={rightTextStyle}
+        checkedCheckBoxColor={checkedCheckBoxColor}
+        uncheckedCheckBoxColor={uncheckedCheckBoxColor}
         onClick={()=> {setFavCheckekboxValue(!isFavChecked)}}
       />
     </View>
@@ -32,13 +42,11 @@ export const LabelWithCheckbox = () => {
 };
 
 LabelWithCheckbox.propTypes = {
-  inputBorderColor: PropTypes.string,
-  inputBorderRadius: PropTypes.number,
-  inputBorderWidth: PropTypes.number,
-  textInputStyles: PropTypes.object,
-  labelName: PropTypes.string,
-  labelColor: PropTypes.string,
-  labelFontSize: PropTypes.number,
-  labelLetterSpacing: PropTypes.number,
-  labelStyles: PropTypes.object
+  checkBoxStyles: PropTypes.object,
+  rightTextStyles: PropTypes.object,
+  leftTextStyles: PropTypes.object,
+  rightText: PropTypes.string,
+  leftText: PropTypes.string,
+  checkedCheckBoxColor: PropTypes.string,
+  uncheckedCheckBoxColor: PropTypes.string
 }
